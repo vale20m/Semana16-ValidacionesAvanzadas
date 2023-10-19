@@ -44,15 +44,9 @@ form.addEventListener('submit', function (event) {
     de no estar chequeado, muestra un mensaje de error y colorea el boton de rojo. Realiza lo contrario si no se cumple.
     */
 
-    terminos.addEventListener("change", function(){
-        if (!terminos.checked){
-            mensajeTerminos.hidden = false;
-            botonTerminos.style.color = "red";
-        } else {
-            mensajeTerminos.hidden = true;
-            botonTerminos.style.color = "";
-        }
-    });
+    checkTerminos()
+
+    terminos.addEventListener("change", () => checkTerminos());
 
     // Agrega una clase al form, la cual permite mostrar los campos invalidos y validos del mismo.
 
@@ -60,4 +54,13 @@ form.addEventListener('submit', function (event) {
 
 });
 
+function checkTerminos(){
+    if (!terminos.checked){
+        mensajeTerminos.hidden = false;
+        botonTerminos.style.color = "red";
+    } else {
+        mensajeTerminos.hidden = true;
+        botonTerminos.style.color = "";
+    }
+}
 
